@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7318A59B-94E5-4080-9F3E-1482146C0C8C}</ProjectGuid>
+    <ProjectGuid>{D4BE71C7-764A-40A7-9872-D9C55EE3AF69}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IS.Transactions.Demo.Integration.Tests</RootNamespace>
-    <AssemblyName>IS.Transactions.Demo.Integration.Tests</AssemblyName>
+    <RootNamespace>IS.Transactions.Demo.Tests.Unit</RootNamespace>
+    <AssemblyName>IS.Transactions.Demo.Tests.Unit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,6 +43,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BusinessLogicTests\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\IS.Transactions.Demo.BusinessLogic\IS.Transactions.Demo.BusinessLogic.csproj">
       <Project>{a45b5e45-c9cb-4727-927f-95bbccdee097}</Project>
       <Name>IS.Transactions.Demo.BusinessLogic</Name>
@@ -50,18 +53,6 @@
     <ProjectReference Include="..\IS.Transactions.Demo.Core\IS.Transactions.Demo.Core.csproj">
       <Project>{6a91ad2e-1128-41fb-8dd9-36e5a80ff112}</Project>
       <Name>IS.Transactions.Demo.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IS.Transactions.Demo.SQL.Repository\IS.Transactions.Demo.SQL.Repository.csproj">
-      <Project>{9cfdeae1-0f14-468f-a6ec-805aa498ded2}</Project>
-      <Name>IS.Transactions.Demo.SQL.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IS.Transactions.Demo.Web.API\IS.Transactions.Demo.Web.API.csproj">
-      <Project>{2af72536-df9c-4db2-966d-86940f61a3d6}</Project>
-      <Name>IS.Transactions.Demo.Web.API</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IS.Transactions.Demo.Web.UI\IS.Transactions.Demo.Web.UI.csproj">
-      <Project>{50c06aaa-17c0-421c-8385-e16d9d5f044a}</Project>
-      <Name>IS.Transactions.Demo.Web.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
