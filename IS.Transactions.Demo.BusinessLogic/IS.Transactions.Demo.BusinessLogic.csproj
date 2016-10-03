@@ -40,7 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountOperation.cs" />
+    <Compile Include="PersonOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransactionOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IS.Transactions.Demo.Core\IS.Transactions.Demo.Core.csproj">

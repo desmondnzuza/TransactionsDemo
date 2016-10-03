@@ -40,12 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\Operation\IAccountOperation.cs" />
+    <Compile Include="Interface\Operation\IPersonOperation.cs" />
+    <Compile Include="Interface\Operation\ITransactionOperation.cs" />
+    <Compile Include="Interface\Repository\IAccountRepository.cs" />
+    <Compile Include="Interface\Repository\IPersonRepository.cs" />
+    <Compile Include="Interface\Repository\ITransactionRepository.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\SearchCriteria.cs" />
+    <Compile Include="Model\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\" />
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
