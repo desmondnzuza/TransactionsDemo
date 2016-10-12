@@ -66,11 +66,11 @@ namespace IS.Transactions.Demo.Tests.Unit.BusinessLogicTests
         }
 
         [TestMethod]
-        public void TransactionOperationTests_WhenAddingTransaction_Expect_RepositoryCallToAddTransaction_ToBeMade()
+        public void TransactionOperationTests_WhenCreatingTransaction_Expect_RepositoryCallToCreateTransaction_ToBeMade()
         {
-            _sut.AddTransaction(_dummyTransaction);
+            _sut.CreateTransaction(_dummyTransaction);
 
-            _mockedTransactionRepository.Verify(x => x.AddTransaction(_dummyTransaction), Times.Once);
+            _mockedTransactionRepository.Verify(x => x.CreateTransaction(_dummyTransaction), Times.Once);
         }
 
         [TestMethod]

@@ -3,7 +3,7 @@
     public class SearchCriteria
     {
         public string Term { get; set; }
-        public int From { get; set; }
-        public int To { get; set; }
+        public int PageSize { get; set; }
+        public int PageNumber { get; set; }
     }
 }

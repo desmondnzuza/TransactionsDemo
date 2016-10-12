@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\Client\IAccountClient.cs" />
+    <Compile Include="Interface\Client\IPersonClient.cs" />
+    <Compile Include="Interface\Client\ITransactionClient.cs" />
     <Compile Include="Interface\Operation\IAccountOperation.cs" />
     <Compile Include="Interface\Operation\IPersonOperation.cs" />
     <Compile Include="Interface\Operation\ITransactionOperation.cs" />

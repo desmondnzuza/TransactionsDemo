@@ -17,9 +17,9 @@ namespace IS.Transactions.Demo.BusinessLogic
             _accountRepository = accountRepository;
         }
 
-        public void AddTransaction(Transaction transactionToAdd)
+        public void CreateTransaction(Transaction transactionToAdd)
         {
-            _transactionRepository.AddTransaction(transactionToAdd);
+            _transactionRepository.CreateTransaction(transactionToAdd);
         }
 
         public Account[] FindAvailableAccounts()

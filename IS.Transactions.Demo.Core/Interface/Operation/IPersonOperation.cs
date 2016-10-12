@@ -6,7 +6,7 @@ namespace IS.Transactions.Demo.Core.Interface.Operation
     {
         Person[] FindPeople(SearchCriteria criteria);
         Person FindPersonByCode(int code);
-        void AddPerson(Person persondToAdd);
+        void CreatePerson(Person persondToAdd);
         void UpdatePerson(Person personToUpdate);
         void RemovePerson(Person personToRemove);
     }

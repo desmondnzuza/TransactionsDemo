@@ -17,9 +17,9 @@ namespace IS.Transactions.Demo.BusinessLogic
             _personRepository = personRepository;
         }
 
-        public void AddAccount(Account accountToAdd)
+        public void CreateAccount(Account accountToAdd)
         {
-            _accountRepository.AddAccount(accountToAdd);
+            _accountRepository.CreateAccount(accountToAdd);
         }
 
         public Account FindAccountByCode(int code)

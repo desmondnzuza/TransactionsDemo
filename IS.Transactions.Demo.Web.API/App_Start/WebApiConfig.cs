@@ -12,7 +12,7 @@ namespace IS.Transactions.Demo.Web.API
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
+            /*// Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
@@ -25,6 +25,28 @@ namespace IS.Transactions.Demo.Web.API
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "CustomActionApi",
+                routeTemplate: "api/{controller}/{action}");*/
+            config.MapHttpAttributeRoutes();
+
+            //NOTE: NOT FINAL. To ensure properties are in camelcase and json is returned for most requests
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+            //config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            config.Routes.MapHttpRoute(
+                name: "MultipleActionsApi",
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
         }
     }
 }

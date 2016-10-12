@@ -14,10 +14,16 @@ namespace IS.Transactions.Demo.Web.UI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "ForIds",
+                url: "{controller}/{action}/code/{code}",
+                defaults: new { controller = "Home", action = "Index", code = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            );            
         }
     }
 }

@@ -27,9 +27,9 @@ namespace IS.Transactions.Demo.BusinessLogic
             return _personRepository.FindPersonByCode(code);
         }
 
-        public void AddPerson(Person persondToAdd)
+        public void CreatePerson(Person persondToAdd)
         {
-            _personRepository.AddPerson(persondToAdd);
+            _personRepository.CreatePerson(persondToAdd);
         }
 
         public void UpdatePerson(Person personToUpdate)

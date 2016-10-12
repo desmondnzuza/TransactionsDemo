@@ -7,8 +7,8 @@ namespace IS.Transactions.Demo.Core.Interface.Repository
         Transaction[] FindTransactions(SearchCriteria criteria);
         Transaction[] FindAvailableTransactions();
         Transaction FindTransactionByCode(int code);
-        void AddTransaction(Transaction accountToAdd);
-        void UpdateTransaction(Transaction accountToUpdate);
-        void RemoveTransaction(Transaction accountToRemove);
+        void CreateTransaction(Transaction transactionToAdd);
+        void UpdateTransaction(Transaction transactionToUpdate);
+        void RemoveTransaction(Transaction transactionToRemove);
     }
 }

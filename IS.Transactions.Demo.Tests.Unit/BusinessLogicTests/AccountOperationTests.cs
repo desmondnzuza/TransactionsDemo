@@ -66,11 +66,11 @@ namespace IS.Transactions.Demo.Tests.Unit.BusinessLogicTests
         }
 
         [TestMethod]
-        public void AccountOperationTests_WhenAddingAccount_Expect_RepositoryCallToAddAccount_ToBeMade()
+        public void AccountOperationTests_WhenCreatingAccount_Expect_RepositoryCallToCreateAccount_ToBeMade()
         {
-            _sut.AddAccount(_dummyAccount);
+            _sut.CreateAccount(_dummyAccount);
 
-            _mockedAccountRepository.Verify(x => x.AddAccount(_dummyAccount), Times.Once);
+            _mockedAccountRepository.Verify(x => x.CreateAccount(_dummyAccount), Times.Once);
         }
 
         [TestMethod]

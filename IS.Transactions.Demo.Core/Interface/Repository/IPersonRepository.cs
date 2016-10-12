@@ -7,7 +7,7 @@ namespace IS.Transactions.Demo.Core.Interface.Repository
         Person[] FindPeople(SearchCriteria criteria);
         Person[] FindAvailablePeople();
         Person FindPersonByCode(int code);
-        void AddPerson(Person persondToAdd);
+        void CreatePerson(Person persondToAdd);
         void UpdatePerson(Person personToUpdate);
         void RemovePerson(Person personToRemove);
     }

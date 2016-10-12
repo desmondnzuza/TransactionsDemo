@@ -7,7 +7,7 @@ namespace IS.Transactions.Demo.Core.Interface.Repository
         Account[] FindAccounts(SearchCriteria criteria);
         Account[] FindAvailableAccounts();
         Account FindAccountByCode(int code);
-        void AddAccount(Account accountToAdd);
+        void CreateAccount(Account accountToAdd);
         void UpdateAccount(Account accountToUpdate);
         void RemoveAccount(Account accountToRemove);
     }

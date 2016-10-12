@@ -62,11 +62,11 @@ namespace IS.Transactions.Demo.Tests.Unit.BusinessLogicTests
         }
 
         [TestMethod]
-        public void PersonOperationTests_WhenAddingPerson_Expect_RepositoryCallToAddPerson_ToBeMade()
+        public void PersonOperationTests_WhenCreatingPerson_Expect_RepositoryCallToCreatePerson_ToBeMade()
         {
-            _sut.AddPerson(_dummyPerson);
+            _sut.CreatePerson(_dummyPerson);
 
-            _mockedPersonRepository.Verify(x => x.AddPerson(_dummyPerson), Times.Once);
+            _mockedPersonRepository.Verify(x => x.CreatePerson(_dummyPerson), Times.Once);
         }
 
         [TestMethod]

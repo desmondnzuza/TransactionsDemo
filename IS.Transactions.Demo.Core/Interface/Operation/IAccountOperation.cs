@@ -7,7 +7,7 @@ namespace IS.Transactions.Demo.Core.Interface.Operation
         Account[] FindAccounts(SearchCriteria criteria);
         Person[] FindAvailablePeople();
         Account FindAccountByCode(int code);
-        void AddAccount(Account accountToAdd);
+        void CreateAccount(Account accountToAdd);
         void UpdateAccount(Account accountToUpdate);
         void RemoveAccount(Account accountToRemove);
     }

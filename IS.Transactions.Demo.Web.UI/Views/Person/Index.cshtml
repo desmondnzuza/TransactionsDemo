@@ -1,0 +1,50 @@
+﻿@model IS.Transactions.Demo.Core.Model.Person[]
+@{
+    ViewBag.Title = "People";
+}
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Code
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Surname
+        </th>
+        <th>
+            ID Number
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { code = item.Code }) |
+                @Html.ActionLink("Details", "Details", new { code = item.Code }) |
+                @Html.ActionLink("Delete", "Delete", new { code = item.Code })
+            </td>
+        </tr>
+    }
+
+</table>
