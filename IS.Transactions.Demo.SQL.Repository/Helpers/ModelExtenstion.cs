@@ -54,7 +54,7 @@ namespace IS.Transactions.Demo.SQL.Repository.Helpers
             return new DbModel.Transaction
             {
                 Code = transaction.Code,
-                AccountCode = transaction.TransactingAccount.Code,
+                AccountCode = transaction.TransactingAccount != null ? transaction.TransactingAccount.Code : 0,
                 TransactionDate = transaction.TransactionDate,
                 CaptureDate = transaction.CaptureDate,
                 Amount = transaction.Amount,

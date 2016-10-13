@@ -1,9 +1,5 @@
 ﻿using IS.Transactions.Demo.SQL.Repository.POCO;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IS.Transactions.Demo.Tests.Integration.Helpers
 {
@@ -15,8 +11,13 @@ namespace IS.Transactions.Demo.Tests.Integration.Helpers
             {
                 using (var ctx = new TransactionsDbContext())
                 {
-                    ctx.People.Remove(personToRemove);
-                    ctx.SaveChanges();
+                    var itemToDelete = ctx.People.FirstOrDefault(x => x.Code == personToRemove.Code);
+
+                    if(itemToDelete != null)
+                    {
+                        ctx.People.Remove(itemToDelete);
+                        ctx.SaveChanges();
+                    }
                 }
             }            
         }

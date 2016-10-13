@@ -55,9 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builders\PersonBuilder.cs" />
+    <Compile Include="Builders\TransactionBuilder.cs" />
     <Compile Include="Helpers\PersonHelper.cs" />
+    <Compile Include="Helpers\TransactionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryTests\PersonRepositoryTests.cs" />
+    <Compile Include="RepositoryTests\TransactionRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessLogicTests\" />

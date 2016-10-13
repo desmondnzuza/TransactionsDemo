@@ -26,9 +26,9 @@ namespace IS.Transactions.Demo.SQL.Repository
         {
             using (var ctx = new POCO.TransactionsDbContext())
             {
-                var query = ctx.Transactions;
+                var availableTransactions = ctx.Transactions.ToArray();
 
-                return query
+                return availableTransactions
                       .Select(x => x.ToCoreModelTransaction())
                       .ToArray();
             }
