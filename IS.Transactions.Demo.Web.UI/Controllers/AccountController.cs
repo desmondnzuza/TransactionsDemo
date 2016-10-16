@@ -1,5 +1,6 @@
 ﻿using IS.Transactions.Demo.Core.Interface.Client;
 using IS.Transactions.Demo.Core.Model;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -14,13 +15,21 @@ namespace IS.Transactions.Demo.Web.UI.Controllers
             _client = client;
         }
         
-        public ActionResult Index()
+        public ActionResult Index(int? selectedAccountHolder)
         {
+            var accountHolders = _client.FindAvailablePeople();
+            ViewBag.SelectedAccountHolder = new SelectList(accountHolders, "Code", "FullName", selectedAccountHolder);
+            int accountHolderID = selectedAccountHolder.GetValueOrDefault();
+
+            var filters = new Dictionary<string, string>();
+            filters.Add("accountHolderID", accountHolderID.ToString());
+
             var defaultCriteria = new SearchCriteria
             {
                 Term = "*",
                 PageNumber = 1,
-                PageSize = 100
+                PageSize = 100,
+                Filters = filters
             };
 
             var accounts = _client.FindAccounts(defaultCriteria);

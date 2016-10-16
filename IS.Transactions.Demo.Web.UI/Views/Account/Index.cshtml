@@ -6,6 +6,14 @@
 
 <h2>Index</h2>
 
+@using (Html.BeginForm())
+{
+    <p>
+        Select Account Holder: @Html.DropDownList("SelectedAccountHolder", "All")
+        <input type="submit" value="Filter" />
+    </p>
+}
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>

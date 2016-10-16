@@ -41,13 +41,25 @@ namespace IS.Transactions.Demo.SQL.Repository
             {
                 int pageSize = criteria.PageSize;
                 int pageNumber = criteria.PageNumber > 1 ? criteria.PageNumber : 1;
-                
+
+                var accountHolderFilter = criteria.Filters.FirstOrDefault(f => f.Key.Equals("accountHolderID"));
+                int accountHolder = 0;
+
+                if (accountHolderFilter.Value != null)
+                {
+                    accountHolder = Convert.ToInt32(accountHolderFilter.Value);
+
+                }
+
                 IQueryable<POCO.Account> query = ctx.Accounts
                     /*.Where(c =>
                           (c.Name.Contains(criteria.Term) ||
                             c.Surname.Contains(criteria.Term) ||
                             criteria.Term == "*"))*/
+                    .Where(a => (a.PersonCode.Equals(accountHolder) || accountHolder == 0))
                     .OrderByDescending(x => x.Code);
+
+                
 
                 var dbResults = query.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToArray();
 
