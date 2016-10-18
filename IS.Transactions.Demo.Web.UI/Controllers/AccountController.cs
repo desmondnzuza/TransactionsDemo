@@ -48,16 +48,8 @@ namespace IS.Transactions.Demo.Web.UI.Controllers
 
         public ActionResult Create()
         {
-            var availablePeople = _client.FindAvailablePeople();
-
-            var selectListItems = from person in availablePeople
-                                  select new SelectListItem
-                                  {
-                                      Text = string.Format("{0} {1}", person.Name, person.Surname),
-                                      Value = person.Code.ToString()
-                                  };
-
-            ViewBag.AvailablePeopleList = new SelectList(selectListItems);
+            var accountHolders = _client.FindAvailablePeople();
+            ViewBag.SelectedAccountHolder = new SelectList(accountHolders, "Code", "FullName");
 
             return View();
         }
