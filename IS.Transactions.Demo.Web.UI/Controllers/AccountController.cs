@@ -15,7 +15,7 @@ namespace IS.Transactions.Demo.Web.UI.Controllers
             _client = client;
         }
         
-        public ActionResult Index(int? selectedAccountHolder)
+        public ActionResult Index(int? selectedAccountHolder, string searchTerm)
         {
             var accountHolders = _client.FindAvailablePeople();
             ViewBag.SelectedAccountHolder = new SelectList(accountHolders, "Code", "FullName", selectedAccountHolder);
@@ -24,9 +24,11 @@ namespace IS.Transactions.Demo.Web.UI.Controllers
             var filters = new Dictionary<string, string>();
             filters.Add("accountHolderID", accountHolderID.ToString());
 
+            ViewBag.CurrentFilter = searchTerm;
+
             var defaultCriteria = new SearchCriteria
             {
-                Term = "*",
+                Term = !string.IsNullOrWhiteSpace(searchTerm) ? searchTerm : "*",
                 PageNumber = 1,
                 PageSize = 100,
                 Filters = filters

@@ -9,7 +9,10 @@
 @using (Html.BeginForm())
 {
     <p>
-        Select Account Holder: @Html.DropDownList("SelectedAccountHolder", "All")
+        Account Holder: @Html.DropDownList("SelectedAccountHolder", "All")
+        <p>
+            Search: @Html.TextBox("searchTerm", ViewBag.CurrentFilter as string)
+        </p>
         <input type="submit" value="Filter" />
     </p>
 }

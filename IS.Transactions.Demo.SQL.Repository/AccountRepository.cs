@@ -56,10 +56,12 @@ namespace IS.Transactions.Demo.SQL.Repository
                           (c.Name.Contains(criteria.Term) ||
                             c.Surname.Contains(criteria.Term) ||
                             criteria.Term == "*"))*/
-                    .Where(a => (a.PersonCode.Equals(accountHolder) || accountHolder == 0))
+                    .Where(a => 
+                    (a.PersonCode.Equals(accountHolder) || accountHolder == 0) &&
+                    ((a.AccountNumber.Contains(criteria.Term) || criteria.Term == "*") ||
+                    (a.Person.Name.Contains(criteria.Term) || criteria.Term == "*") ||
+                    (a.Person.Surname.Contains(criteria.Term) || criteria.Term == "*")))
                     .OrderByDescending(x => x.Code);
-
-                
 
                 var dbResults = query.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToArray();
 
