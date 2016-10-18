@@ -28,7 +28,7 @@ namespace IS.Transactions.Demo.Web.UI.Controllers
 
             var defaultCriteria = new SearchCriteria
             {
-                Term = !string.IsNullOrWhiteSpace(searchTerm) ? searchTerm : "*",
+                Term = !string.IsNullOrWhiteSpace(searchTerm) ? searchTerm : "",
                 PageNumber = 1,
                 PageSize = 100,
                 Filters = filters
