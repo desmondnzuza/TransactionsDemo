@@ -79,9 +79,11 @@ namespace IS.Transactions.Demo.Web.UI.Controllers
 
         public ActionResult Edit(int code)
         {
-            var transactionToEdit = _client.FindAccountByCode(code);
+            var accountToEdit = _client.FindAccountByCode(code);
 
-            return View(transactionToEdit);
+            ViewBag.AvailableTransactions = new SelectList(accountToEdit.Transactions, "Code", "AccountNumber", null);
+
+            return View(accountToEdit);
         }
 
         [HttpPost]

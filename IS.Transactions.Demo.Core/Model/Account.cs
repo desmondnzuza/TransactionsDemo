@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace IS.Transactions.Demo.Core.Model
 {
@@ -9,5 +10,6 @@ namespace IS.Transactions.Demo.Core.Model
         public Person AccountHolder { get; set; }
         public string AccountNumber { get; set; }
         public decimal OutstandingBalance { get; set; }
+        public IEnumerable<Transaction> Transactions { get; set; }
     }
 }

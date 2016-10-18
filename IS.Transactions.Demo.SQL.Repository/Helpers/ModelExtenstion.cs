@@ -1,5 +1,6 @@
 ﻿using CoreModel = IS.Transactions.Demo.Core.Model;
 using DbModel = IS.Transactions.Demo.SQL.Repository.POCO;
+using System.Linq;
 
 namespace IS.Transactions.Demo.SQL.Repository.Helpers
 {
@@ -7,23 +8,47 @@ namespace IS.Transactions.Demo.SQL.Repository.Helpers
     {
         public static DbModel.Account ToDbModelAccount(this CoreModel.Account account)
         {
+            var transactions = account.Transactions
+                      .Select(x => new DbModel.Transaction
+                      {
+                          Amount = x.Amount,
+                          CaptureDate = x.CaptureDate,
+                          Code = x.Code,
+                          Description = x.Description,
+                          TransactionDate = x.TransactionDate
+                      })
+                      .ToArray();
+
             return new DbModel.Account
             {
                 Code = account.Code,
                 PersonCode = (account.AccountHolder != null) ? account.AccountHolder.Code : 1,
                 AccountNumber = account.AccountNumber,
                 OutstandingBalance = account.OutstandingBalance,
+                Transactions = transactions
             };
         }
 
         public static CoreModel.Account ToCoreModelAccount(this DbModel.Account account)
         {
+            var transactions = account.Transactions
+                      .Select(x => new CoreModel.Transaction
+                      {
+                          Amount = x.Amount,
+                          CaptureDate = x.CaptureDate,
+                          Code = x.Code,
+                          Description = x.Description,
+                          TransactionDate = x.TransactionDate
+                      })
+                      .ToArray();
+
             return new CoreModel.Account
             {
                 Code = account.Code,
                 AccountHolder = account.Person.ToCoreModelPerson(),
                 AccountNumber = account.AccountNumber,
                 OutstandingBalance = account.OutstandingBalance,
+                Transactions = transactions
             };
         }
 

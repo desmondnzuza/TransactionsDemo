@@ -6,20 +6,37 @@
 
 <h2>Index</h2>
 
-@using (Html.BeginForm())
-{
-    <p>
-        Account Holder: @Html.DropDownList("SelectedAccountHolder", "All")
-        <p>
-            Search: @Html.TextBox("searchTerm", ViewBag.CurrentFilter as string)
-        </p>
-        <input type="submit" value="Filter" />
-    </p>
-}
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm())
+{
+    <dl class="dl-horizontal">
+        <dt>
+            Account Holder
+        </dt>
+
+        <dd>
+            @Html.DropDownList("SelectedAccountHolder", "All")
+        </dd>
+
+        <dt>
+            Search
+        </dt>
+
+        <dd>
+            @Html.TextBox("searchTerm", ViewBag.CurrentFilter as string)
+        </dd>
+        <dt>
+            &nbsp;
+        </dt>
+        <dd>
+            <input type="submit" value="Filter" />
+        </dd>
+
+    </dl>
+}
 <table class="table">
     <tr>
         <th>
